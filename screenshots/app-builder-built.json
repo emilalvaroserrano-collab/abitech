@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "ABI Tech",
+      "hasCanvas": false,
+      "bodyTextLen": 3605,
+      "bodyTextHash": "f3c6dc96a73284328177f1182012488502cc913e005d49f5c547c81f5bfe3583",
+      "bodyTextPrefix": "ABI Tech AI Business Implementation Technology Home About Servic",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "ABI Tech",
+      "hasCanvas": false,
+      "bodyTextLen": 3435,
+      "bodyTextHash": "f6bc1d4f325ccb843248127ebb16ccdb7865ad71382a71a37d952580c91668c0",
+      "bodyTextPrefix": "ABI Tech Let's Talk AI STRATEGY. REAL IMPLEMENTATION. MEASURABLE",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
