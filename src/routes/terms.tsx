@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { COMPANY } from "@/lib/site-data";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
   component: TermsPage,
-  head: () => ({ meta: [{ title: "Terms of Service — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "Terms of Service",
+      description: "Terms for using the ABI Tech website and requesting a conversation.",
+      path: "/terms",
+    }),
 });
 
 function TermsPage() {

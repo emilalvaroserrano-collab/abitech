@@ -12,15 +12,22 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ApproachRouteImport } from './routes/approach'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as UseCasesIndexRouteImport } from './routes/use-cases.index'
 import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -36,6 +43,11 @@ const AboutRoute = AboutRouteImport.update({
 const ApproachRoute = ApproachRouteImport.update({
   id: '/approach',
   path: '/approach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -63,6 +75,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -73,15 +90,40 @@ const UseCasesRoute = UseCasesRouteImport.update({
   path: '/use-cases',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
+} as any)
+const UseCasesIndexRoute = UseCasesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UseCasesRoute,
 } as any)
 const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
   id: '/$slug',
@@ -93,47 +135,64 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/approach': typeof ApproachRoute
+  '/blog': typeof BlogRouteWithChildren
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/use-cases/': typeof UseCasesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/approach': typeof ApproachRoute
   '/careers': typeof CareersRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
-  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/use-cases': typeof UseCasesRouteWithChildren
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/use-cases': typeof UseCasesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/approach': typeof ApproachRoute
+  '/blog': typeof BlogRouteWithChildren
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/use-cases/': typeof UseCasesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,57 +200,76 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/approach'
+    | '/blog'
     | '/careers'
     | '/case-studies'
     | '/contact'
     | '/privacy'
     | '/services'
+    | '/sitemap.xml'
     | '/terms'
     | '/use-cases'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/services/$slug'
     | '/use-cases/$slug'
+    | '/blog/'
+    | '/case-studies/'
+    | '/services/'
+    | '/use-cases/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/approach'
     | '/careers'
-    | '/case-studies'
     | '/contact'
     | '/privacy'
-    | '/services'
+    | '/sitemap.xml'
     | '/terms'
-    | '/use-cases'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/services/$slug'
     | '/use-cases/$slug'
+    | '/blog'
+    | '/case-studies'
+    | '/services'
+    | '/use-cases'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/approach'
+    | '/blog'
     | '/careers'
     | '/case-studies'
     | '/contact'
     | '/privacy'
     | '/services'
+    | '/sitemap.xml'
     | '/terms'
     | '/use-cases'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/services/$slug'
     | '/use-cases/$slug'
+    | '/blog/'
+    | '/case-studies/'
+    | '/services/'
+    | '/use-cases/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ApproachRoute: typeof ApproachRoute
+  BlogRoute: typeof BlogRouteWithChildren
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
 }
@@ -217,6 +295,13 @@ declare module '@tanstack/react-router' {
       path: '/approach'
       fullPath: '/approach'
       preLoaderRoute: typeof ApproachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -254,6 +339,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -268,6 +360,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/$slug'
@@ -275,12 +388,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/use-cases/': {
+      id: '/use-cases/'
+      path: '/'
+      fullPath: '/use-cases/'
+      preLoaderRoute: typeof UseCasesIndexRouteImport
+      parentRoute: typeof UseCasesRoute
     }
     '/use-cases/$slug': {
       id: '/use-cases/$slug'
@@ -292,12 +419,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
 
 const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
@@ -306,10 +447,12 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
@@ -318,10 +461,12 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 interface UseCasesRouteChildren {
   UseCasesSlugRoute: typeof UseCasesSlugRoute
+  UseCasesIndexRoute: typeof UseCasesIndexRoute
 }
 
 const UseCasesRouteChildren: UseCasesRouteChildren = {
   UseCasesSlugRoute: UseCasesSlugRoute,
+  UseCasesIndexRoute: UseCasesIndexRoute,
 }
 
 const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
@@ -332,11 +477,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ApproachRoute: ApproachRoute,
+  BlogRoute: BlogRouteWithChildren,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
 }

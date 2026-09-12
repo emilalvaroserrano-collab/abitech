@@ -6,10 +6,17 @@ import { CtaBanner } from "@/components/home/cta-banner";
 import { Button } from "@/components/ui/button";
 import { useUi } from "@/lib/ui-store";
 import { ArrowRight } from "lucide-react";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/approach")({
   component: ApproachPage,
-  head: () => ({ meta: [{ title: "Our Approach — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "Our Approach — Discover, Design, Develop, Deploy, Scale",
+      description:
+        "ABI Tech’s five-step AI delivery path: discover, design, develop, deploy, and scale — with measurable baselines at every gate.",
+      path: "/approach",
+    }),
 });
 
 const DETAIL: Record<string, string> = {

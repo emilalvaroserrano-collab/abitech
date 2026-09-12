@@ -5,6 +5,7 @@ import { SERVICE_ICONS } from "@/components/home/icons";
 import { Button } from "@/components/ui/button";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { useUi } from "@/lib/ui-store";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/$slug")({
   component: ServiceDetail,
@@ -13,9 +14,12 @@ export const Route = createFileRoute("/services/$slug")({
     if (!service) throw notFound();
     return { service };
   },
-  head: ({ loaderData }) => ({
-    meta: [{ title: `${loaderData?.service.title ?? "Service"} — ABI Tech` }],
-  }),
+  head: ({ loaderData }) =>
+    seoHead({
+      title: loaderData?.service.title ?? "Service",
+      description: loaderData?.service.short ?? "ABI Tech AI services.",
+      path: `/services/${loaderData?.service.slug ?? ""}`,
+    }),
 });
 
 function ServiceDetail() {

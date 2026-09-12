@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { COMPANY } from "@/lib/site-data";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
-  head: () => ({ meta: [{ title: "Privacy Policy — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "Privacy Policy",
+      description: "How ABI Tech handles contact and consultation information.",
+      path: "/privacy",
+    }),
 });
 
 function PrivacyPage() {

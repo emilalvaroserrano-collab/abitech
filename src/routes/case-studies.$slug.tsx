@@ -4,6 +4,7 @@ import { CASE_STUDIES } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { useUi } from "@/lib/ui-store";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/case-studies/$slug")({
   component: CaseDetail,
@@ -12,9 +13,13 @@ export const Route = createFileRoute("/case-studies/$slug")({
     if (!study) throw notFound();
     return { study };
   },
-  head: ({ loaderData }) => ({
-    meta: [{ title: `${loaderData?.study.title ?? "Case study"} — ABI Tech` }],
-  }),
+  head: ({ loaderData }) =>
+    seoHead({
+      title: loaderData?.study.title ?? "Case study",
+      description: loaderData?.study.challenge ?? "ABI Tech case study.",
+      path: `/case-studies/${loaderData?.study.slug ?? ""}`,
+      image: loaderData?.study.image,
+    }),
 });
 
 function CaseDetail() {

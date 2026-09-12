@@ -4,6 +4,7 @@ import { INDUSTRIES, CASE_STUDIES } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { useUi } from "@/lib/ui-store";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/use-cases/$slug")({
   component: IndustryPage,
@@ -13,9 +14,14 @@ export const Route = createFileRoute("/use-cases/$slug")({
     const cases = CASE_STUDIES.filter((c) => c.industrySlug === industry.slug);
     return { industry, cases };
   },
-  head: ({ loaderData }) => ({
-    meta: [{ title: `${loaderData?.industry.title ?? "Industry"} — ABI Tech` }],
-  }),
+  head: ({ loaderData }) =>
+    seoHead({
+      title: `${loaderData?.industry.title ?? "Industry"} AI Use Cases`,
+      description:
+        loaderData?.industry.summary ??
+        "Industry AI use cases implemented by ABI Tech.",
+      path: `/use-cases/${loaderData?.industry.slug ?? ""}`,
+    }),
 });
 
 function IndustryPage() {

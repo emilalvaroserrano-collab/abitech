@@ -4,10 +4,17 @@ import { InnerHero } from "@/components/layout/inner-hero";
 import { Button } from "@/components/ui/button";
 import { useUi } from "@/lib/ui-store";
 import { COMPANY } from "@/lib/site-data";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  head: () => ({ meta: [{ title: "Contact — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "Contact ABI Tech — Ortigas Office, Email, WhatsApp",
+      description:
+        "Contact ABI Tech: admin@abitech.online, WhatsApp +63 945 4456 764. Ortigas Office at One Corporate Center, Pasig City. Meetings by appointment.",
+      path: "/contact",
+    }),
 });
 
 function ContactPage() {

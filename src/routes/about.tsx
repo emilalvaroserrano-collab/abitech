@@ -5,10 +5,17 @@ import { CtaBanner } from "@/components/home/cta-banner";
 import { Button } from "@/components/ui/button";
 import { STATS } from "@/lib/site-data";
 import { useUi } from "@/lib/ui-store";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
-  head: () => ({ meta: [{ title: "About — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "About ABI Tech — AI Implementation Firm in Ortigas, Pasig",
+      description:
+        "ABI Tech is an AI implementation firm in Ortigas Center, Pasig. We take strategy through production support so operators get a system they will actually use.",
+      path: "/about",
+    }),
 });
 
 function AboutPage() {

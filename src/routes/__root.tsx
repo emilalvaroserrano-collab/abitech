@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "ABI Tech helps organizations design, build, and deploy AI solutions that actually work — from strategy to implementation.",
+          "ABI Tech helps organizations design, build, and deploy AI solutions that actually work — from strategy to implementation in Ortigas, Pasig.",
       },
       { name: "theme-color", content: "#1D6FE8" },
     ],

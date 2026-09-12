@@ -5,10 +5,17 @@ import { JOBS } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { useUi } from "@/lib/ui-store";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/careers")({
   component: CareersPage,
-  head: () => ({ meta: [{ title: "Careers — ABI Tech" }] }),
+  head: () =>
+    seoHead({
+      title: "Careers — Join ABI Tech in Ortigas, Pasig",
+      description:
+        "Open roles at ABI Tech: AI engineers, solutions consultants, MLOps, product design, and engagement managers. Ortigas hub, APAC hours.",
+      path: "/careers",
+    }),
 });
 
 function CareersPage() {

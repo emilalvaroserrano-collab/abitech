@@ -22,6 +22,7 @@ export const NAV = [
   { label: "Services", to: "/services" },
   { label: "Use Cases", to: "/use-cases" },
   { label: "Case Studies", to: "/case-studies" },
+  { label: "Blog", to: "/blog" },
   { label: "Our Approach", to: "/approach" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },

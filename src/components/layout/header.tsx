@@ -51,7 +51,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 className={cn(
-                  "relative px-2.5 py-2 text-[13.5px] font-medium rounded-md transition-colors",
+                  "relative px-2 py-2 text-[13px] font-medium rounded-md transition-colors xl:px-2.5 xl:text-[13.5px]",
                   active ? "text-primary" : "text-fg-muted hover:text-fg",
                 )}
               >

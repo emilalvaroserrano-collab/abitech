@@ -27,7 +27,7 @@ export function Hero() {
             <span className="block text-primary">Real Business Growth</span>
           </h1>
           <p className="mt-5 max-w-lg text-[15.5px] leading-relaxed text-fg-muted">
-            ABI Tech helps organizations design, build, and deploy AI solutions that actually
+            ABI Tech, based in Ortigas Center, Pasig, helps organizations design, build, and deploy AI solutions that actually
             work — from strategy to implementation, deployment, and long-term support.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
