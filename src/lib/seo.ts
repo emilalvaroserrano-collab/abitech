@@ -70,7 +70,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     legalName: "ABI Tech",
     url: SITE_URL,
-    logo: absUrl("/og.jpg"),
+    logo: absUrl("/logo.png"),
     image: absUrl("/og.jpg"),
     description:
       "ABI Tech designs, builds, and deploys production AI systems — strategy, custom development, automation, and dedicated teams.",
@@ -155,7 +155,7 @@ export function articleJsonLd(post: {
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: absUrl("/og.jpg") },
+      logo: { "@type": "ImageObject", url: absUrl("/logo.png") },
     },
     mainEntityOfPage: absUrl(`/blog/${post.slug}`),
     inLanguage: "en-PH",
