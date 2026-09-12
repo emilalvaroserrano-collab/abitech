@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { COMPANY } from "@/lib/site-data";
 
 export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
@@ -17,15 +18,20 @@ function PrivacyPage() {
           not sent to a third-party server from this site.
         </p>
         <p>
-          If you email hello@abitech.ai, we use that correspondence to respond and, if we work
-          together, to run the engagement. We do not sell personal information.
+          If you email {COMPANY.email} or message us on WhatsApp, we use that correspondence to
+          respond and, if we work together, to run the engagement. We do not sell personal
+          information.
         </p>
         <p>
           Production systems we build for clients are covered by the contract for that
           engagement, including data-processing terms where required.
         </p>
         <p>
-          Questions: <a className="text-primary" href="mailto:hello@abitech.ai">hello@abitech.ai</a>.
+          Questions:{" "}
+          <a className="text-primary" href={COMPANY.emailHref}>
+            {COMPANY.email}
+          </a>
+          .
         </p>
       </div>
     </article>

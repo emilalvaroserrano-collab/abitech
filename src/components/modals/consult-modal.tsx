@@ -3,7 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useUi } from "@/lib/ui-store";
 import { Button } from "@/components/ui/button";
-import { INDUSTRIES } from "@/lib/site-data";
+import { INDUSTRIES, COMPANY } from "@/lib/site-data";
 
 export function ConsultModal() {
   const open = useUi((s) => s.consultOpen);
@@ -51,7 +51,8 @@ export function ConsultModal() {
               <CheckCircle2 className="mx-auto size-12 text-primary" />
               <Dialog.Title className="mt-4 text-2xl font-bold">Request received</Dialog.Title>
               <Dialog.Description className="mt-2 text-fg-muted">
-                A partner from ABI Tech will reach out within one business day.
+                A partner from ABI Tech will reach out within one business day. Prefer a faster
+                reply? WhatsApp us at {COMPANY.whatsapp} or email {COMPANY.email}.
               </Dialog.Description>
               <Button className="mt-6" onClick={() => onOpenChange(false)}>
                 Close

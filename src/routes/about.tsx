@@ -42,7 +42,7 @@ function AboutPage() {
           </p>
           <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
             We work with operators in healthcare, finance, retail, education, manufacturing, and
-            the public sector. Our home is Manila; our clients are worldwide.
+            the public sector. Our home is Ortigas Center, Pasig; our clients are worldwide.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ function AboutPage() {
             </Link>
           </Button>
           <Button variant="secondary" asChild>
-            <Link to="/contact">Visit us in Manila</Link>
+            <Link to="/contact">Visit us in Ortigas</Link>
           </Button>
         </div>
       </section>

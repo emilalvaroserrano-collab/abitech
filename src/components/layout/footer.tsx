@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Youtube, Instagram, Mail, MapPin } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
-import { NAV, SERVICES } from "@/lib/site-data";
+import { NAV, SERVICES, COMPANY } from "@/lib/site-data";
 
 export function Footer() {
   return (
@@ -21,7 +21,7 @@ export function Footer() {
             ].map(({ Icon, label }) => (
               <a
                 key={label}
-                href="#contact"
+                href="/contact"
                 aria-label={label}
                 className="inline-flex size-9 items-center justify-center rounded-full text-fg-muted hover:bg-bg hover:text-primary"
               >
@@ -70,17 +70,33 @@ export function Footer() {
           <h3 className="text-sm font-bold text-fg">Contact</h3>
           <ul className="mt-4 space-y-3 text-sm text-fg-muted">
             <li className="flex items-start gap-2.5">
-              <Mail className="mt-0.5 size-4 text-primary" strokeWidth={1.8} />
-              <a href="mailto:hello@abitech.ai" className="hover:text-primary">
-                hello@abitech.ai
+              <Mail className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={1.8} />
+              <a href={COMPANY.emailHref} className="hover:text-primary">
+                {COMPANY.email}
               </a>
             </li>
             <li className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 size-4 text-primary" strokeWidth={1.8} />
-              <span>
-                Manila, Philippines
-                <span className="block text-fg-subtle">(Serving Clients Worldwide)</span>
-              </span>
+              <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={1.8} />
+              <a
+                href={COMPANY.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-primary"
+              >
+                {COMPANY.whatsapp}
+              </a>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={1.8} />
+              <a href={COMPANY.mapsHref} target="_blank" rel="noreferrer" className="hover:text-primary">
+                <span className="font-medium text-fg">{COMPANY.officeName}</span>
+                {COMPANY.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+                <span className="mt-1 block text-fg-subtle">{COMPANY.appointmentNote}</span>
+              </a>
             </li>
           </ul>
         </div>

@@ -30,7 +30,7 @@ function CareersPage() {
           <h2 className="text-2xl font-extrabold">How we work</h2>
           <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-fg-muted">
             <li>Small pods. You will know everyone on the engagement.</li>
-            <li>Manila hub, APAC-friendly hours, clients across time zones.</li>
+            <li>Ortigas hub in Pasig, APAC-friendly hours, clients across time zones.</li>
             <li>We write things down. Decisions live in the repo, not in chat.</li>
             <li>No bench-warming. If we hire you, there is real work waiting.</li>
           </ul>

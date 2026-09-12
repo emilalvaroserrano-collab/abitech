@@ -1,3 +1,21 @@
+export const COMPANY = {
+  name: "ABI Tech",
+  email: "admin@abitech.online",
+  emailHref: "mailto:admin@abitech.online",
+  whatsapp: "+63 945 4456 764",
+  whatsappHref: "https://wa.me/639454456764",
+  officeName: "Ortigas Office",
+  addressLines: [
+    "One Corporate Center",
+    "Julia Vargas Ave. cor. Meralco Ave.",
+    "Ortigas Center, Pasig City 1605",
+    "Philippines",
+  ],
+  mapsHref:
+    "https://www.google.com/maps/search/?api=1&query=One%20Corporate%20Center%20Julia%20Vargas%20Ave%20Meralco%20Ave%20Ortigas%20Center%20Pasig",
+  appointmentNote: "Meetings by appointment.",
+} as const;
+
 export const NAV = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
@@ -247,7 +265,7 @@ export const JOBS = [
     id: "sr-ai-engineer",
     title: "Senior AI Engineer",
     team: "Delivery",
-    location: "Manila · Hybrid",
+    location: "Ortigas, Pasig · Hybrid",
     type: "Full-time",
     blurb:
       "Own model integration, evaluation, and production reliability on client squads. You have shipped RAG or agents that real users depend on.",
@@ -256,7 +274,7 @@ export const JOBS = [
     id: "solutions-consultant",
     title: "AI Solutions Consultant",
     team: "Advisory",
-    location: "Manila · Client-facing",
+    location: "Ortigas, Pasig · Client-facing",
     type: "Full-time",
     blurb:
       "Translate messy operations into a scoped AI program. You are as comfortable in a boardroom as you are in a process workshop.",
@@ -274,7 +292,7 @@ export const JOBS = [
     id: "product-designer",
     title: "Product Designer",
     team: "Experience",
-    location: "Manila · Hybrid",
+    location: "Ortigas, Pasig · Hybrid",
     type: "Full-time",
     blurb:
       "Design the human side of AI products — handoff states, trust, and the moments a person should take over from a model.",
@@ -283,7 +301,7 @@ export const JOBS = [
     id: "engagement-manager",
     title: "Engagement Manager",
     team: "Delivery",
-    location: "Manila · Hybrid",
+    location: "Ortigas, Pasig · Hybrid",
     type: "Full-time",
     blurb:
       "Run the engagement. Scope, staffing, executive communication, and the unglamorous work of making a program land.",

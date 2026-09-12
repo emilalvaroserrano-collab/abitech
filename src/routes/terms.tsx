@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { COMPANY } from "@/lib/site-data";
 
 export const Route = createFileRoute("/terms")({
   component: TermsPage,
@@ -24,7 +25,15 @@ function TermsPage() {
           of their owners and do not imply endorsement.
         </p>
         <p>
-          Contact: <a className="text-primary" href="mailto:hello@abitech.ai">hello@abitech.ai</a>.
+          Contact:{" "}
+          <a className="text-primary" href={COMPANY.emailHref}>
+            {COMPANY.email}
+          </a>
+          {" · "}
+          <a className="text-primary" href={COMPANY.whatsappHref} target="_blank" rel="noreferrer">
+            {COMPANY.whatsapp}
+          </a>
+          .
         </p>
       </div>
     </article>
